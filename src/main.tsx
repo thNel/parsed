@@ -1,10 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import { ComponentPreviews, useInitial } from '@/dev';
+import { router } from '@/router';
+import { DevSupport } from '@react-buddy/ide-toolbox';
+import axios from 'axios';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+axios.defaults.withCredentials = true;
+
+createRoot(document.getElementById('root') as HTMLElement).render(
+  <StrictMode>
+    <RecoilRoot>
+      <DevSupport ComponentPreviews={ComponentPreviews} useInitialHook={useInitial}>
+        <RouterProvider router={router} />
+      </DevSupport>
+    </RecoilRoot>
+  </StrictMode>,
+);

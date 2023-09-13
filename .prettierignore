@@ -1,0 +1,9 @@
+**/.git
+**/.svn
+**/.hg
+**/dist
+**/node_modules
+**/config
+**/extTools
+**/public
+README.md

@@ -1,0 +1,84 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2020": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "ignorePatterns": [
+    "dist",
+    "node_modules",
+    ".eslintrc.cjs"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "ecmaFeatures": {
+      "jsx": false
+    }
+  },
+  "plugins": [
+    "react-refresh",
+    "@typescript-eslint",
+    "prettier",
+    "import"
+  ],
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          [
+            "@",
+            "./src"
+          ]
+        ],
+        "extensions": [
+          ".ts",
+          ".tsx"
+        ]
+      },
+      "node": {
+        "moduleDirectory": [
+          "node_modules",
+          "src/"
+        ]
+      },
+      "vite": {
+        "namedExport": "viteConfig",
+        "configPath": "vite.config.ts"
+      }
+    },
+    "import/ignore": [
+      "node_modules"
+    ]
+  },
+  "rules": {
+    "react-refresh/only-export-components": [
+      "warn",
+      {
+        "allowConstantExport": true
+      }
+    ],
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "no-debugger": "error",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "": "never",
+        "js": "never",
+        "ts": "never",
+        "jsx": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/no-unresolved": [
+      0
+    ]
+  }
+}

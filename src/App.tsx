@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { lightThemeState } from '@/store/settings';
+import { materialDarkThemeOptions as dark } from '@/themes/dark';
+import { materialLightThemeOptions as light } from '@/themes/light';
+import { Box, CssBaseline } from '@mui/material';
+import { createTheme, THEME_ID, ThemeProvider } from '@mui/material/styles';
+import { ReactElement } from 'react';
+import { Outlet } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 
-function App() {
-  const [count, setCount] = useState(0)
+const materialLightTheme = createTheme(light);
+const materialDarkTheme = createTheme(dark);
+
+function App({ children }: { children?: ReactElement }) {
+  const isLightTheme = useRecoilValue(lightThemeState);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <ThemeProvider
+      theme={{ [THEME_ID]: isLightTheme ? materialLightTheme : materialDarkTheme }}
+    >
+      <CssBaseline enableColorScheme />
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100vh',
+        }}
+      >
+        {children ? children : <Outlet />}
+      </Box>
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
