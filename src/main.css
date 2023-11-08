@@ -1,0 +1,5 @@
+div#root {
+  max-height: 100vh;
+  display: flex;
+  overflow: auto;
+}

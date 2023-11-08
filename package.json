@@ -16,15 +16,20 @@
     "@mui/system": "^5.14.8",
     "@react-buddy/ide-toolbox": "^2.4.0",
     "@react-buddy/palette-mui": "^5.0.1",
+    "@tanstack/react-query": "^4.29.7",
+    "@tanstack/react-query-devtools": "^4.29.7",
     "axios": "^1.5.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
+    "notistack": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
     "recoil": "^0.7.7",
+    "scss": "^0.2.4",
     "sort-by": "^1.2.0",
-    "styled-components": "^5.3.11"
+    "styled-components": "^5.3.11",
+    "uniqolor": "^1.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.6.0",

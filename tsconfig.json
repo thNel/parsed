@@ -13,11 +13,13 @@
       "@mui/styled-engine": [
         "./node_modules/@mui/styled-engine-sc"
       ],
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
     /* Bundler mode */
     "moduleResolution": "Node",
-    "allowImportingTsExtensions": true,
+    "allowImportingTsExtensions": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
