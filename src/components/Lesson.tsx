@@ -24,13 +24,11 @@ const Lesson = (): ReactElement => {
     >
       {lesson?.type === LessonType.youtube ? (
         <iframe
-          width="720"
-          height="405"
           src={`https://www.youtube.com/embed/${lesson.url.replace(
             'https://youtu.be/',
             '',
           )}?color=white`}
-          style={{ border: 0 }}
+          className={'video-frame'}
           allowFullScreen
         />
       ) : (
