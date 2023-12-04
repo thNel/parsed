@@ -73,3 +73,25 @@ export const getLessons =
     return lessons;
   };
 
+export const getVimeoVideo = async (url: string, referer?: string): Promise<string> => {
+  const {
+    data: { message, error, success },
+  } = await axios.post<ServerMessage>(
+    '/getVimeoVideo',
+    {
+      url,
+      config: referer ? { headers: { Referer: referer } } : undefined,
+    },
+    { baseURL: section },
+  );
+  if (success) {
+    return message;
+  }
+  if (error) {
+    ToastUtils.error(message);
+  } else {
+    ToastUtils.toast(message);
+  }
+  return 'default error document';
+};
+

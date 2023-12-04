@@ -1,8 +1,8 @@
-import { defineConfig, loadEnv, splitVendorChunkPlugin, UserConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import tsconfigPaths from 'vite-tsconfig-paths';
 import { resolve } from 'path';
+import { defineConfig, loadEnv, splitVendorChunkPlugin, UserConfig } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint';
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 const ENV_PREFIX = ['VITE_'];
 
@@ -29,6 +29,7 @@ export default defineConfig(({ mode }) => {
   console.log(env);
 
   viteConfig.server = {
+    host: '127.0.0.1',
     port: 3000,
     open: true,
     proxy: {
@@ -36,6 +37,11 @@ export default defineConfig(({ mode }) => {
         secure: true,
         changeOrigin: true,
         target: env.VITE_API_URL,
+      },
+      '/texttrack': {
+        secure: true,
+        changeOrigin: true,
+        target: 'https://player.vimeo.com/',
       },
     },
   };
